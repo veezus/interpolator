@@ -2,26 +2,29 @@ class MissingPlaceholderError extends Error { }
 
 class Interpolator {
   constructor (options={}) {
-    this._source = options.source || ''
+    this._template = options.template || ''
     this._placeholders = options.placeholders || {}
     this.placeholderRegexp = /\${(\w+)}/g
   }
 
   parse () {
-    return this.source.replace(this.placeholderRegexp, (match, placeholder) => {
-      if (this.placeholders.hasOwnProperty(placeholder))
-        return this.placeholders[placeholder]
-      else
-        throw new MissingPlaceholderError
-    })
+    return this.template.replace(this.placeholderRegexp,
+      this.replacePlaceholder.bind(this))
+  }
+
+  replacePlaceholder (match, placeholder) {
+    if (this.placeholders.hasOwnProperty(placeholder))
+      return this.placeholders[placeholder]
+    else
+      throw new MissingPlaceholderError
   }
 
   get placeholders () {
     return this._placeholders
   }
 
-  get source () {
-    return this._source
+  get template () {
+    return this._template
   }
 }
 

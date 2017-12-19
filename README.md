@@ -7,13 +7,13 @@ Interpolator was written as a solution for a coding challenge. It accepts a temp
 For more comprehensive examples, see `./src/interpolator.spec.js`.
 
 ```javascript
-(new Interpolator({
+let interpolator = new Interpolator({
   template: "${name} has an appointment on ${day}",
   placeholders: {
     name: 'Billy',
     day: 'Thursday',
   },
-})).parse();
-
-// => "Billy has an appointment on Thursday"
+})
+interpolator.parse(); // => "Billy has an appointment on Thursday"
+interpolator.result; // => Cached result of parse()
 ```

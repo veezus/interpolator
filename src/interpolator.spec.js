@@ -63,4 +63,29 @@ describe("Interpolator", () => {
       });
     });
   });
+
+  describe("#result", () => {
+    describe("#when parse has not been called yet", () => {
+      it("returns an empty string", () => {
+        let interpolator = new Interpolator({
+          template: "A ${value} string",
+          placeholders: { value: 'cached' }
+        })
+        expect(interpolator.result).toEqual('');
+      });
+    });
+
+    describe("#when parse has previously been called", () => {
+      it("returns the result of parse()", () => {
+        let interpolator = new Interpolator({
+          template: "A ${value} string",
+          placeholders: { value: 'cached' }
+        })
+        // The order of arguments matters here, so `parse()` is called before
+        // `result`
+        expect(interpolator.parse()).toBe(interpolator.result)
+        expect(interpolator.result).toEqual('A cached string')
+      });
+    });
+  });
 });

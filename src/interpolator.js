@@ -8,7 +8,7 @@ class Interpolator {
   }
 
   parse () {
-    this._result = this.template.replace(this.placeholderRegexp,
+    this.result = this.template.replace(this.placeholderRegexp,
       this.replacePlaceholder.bind(this))
     return this.result
   }
@@ -26,6 +26,10 @@ class Interpolator {
 
   get result () {
     return this._result || ''
+  }
+
+  set result (value) {
+    return this._result = value
   }
 
   get template () {

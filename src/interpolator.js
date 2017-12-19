@@ -3,21 +3,21 @@ class MissingPlaceholderError extends Error { }
 class Interpolator {
   constructor (options={}) {
     this._source = options.source || ''
-    this._dictionary = options.dictionary || {}
+    this._placeholders = options.placeholders || {}
     this.placeholderRegexp = /\${(\w+)}/g
   }
 
   parse () {
     return this.source.replace(this.placeholderRegexp, (match, placeholder) => {
-      if (this.dictionary.hasOwnProperty(placeholder))
-        return this.dictionary[placeholder]
+      if (this.placeholders.hasOwnProperty(placeholder))
+        return this.placeholders[placeholder]
       else
         throw new MissingPlaceholderError
     })
   }
 
-  get dictionary () {
-    return this._dictionary
+  get placeholders () {
+    return this._placeholders
   }
 
   get source () {

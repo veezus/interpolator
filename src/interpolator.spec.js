@@ -3,13 +3,11 @@ const MissingPlaceholderError = require('./interpolator').MissingPlaceholderErro
 
 describe("Interpolator", () => {
   describe("#parse", () => {
-    describe("when the dictionary contains the interpolated values", () => {
+    describe("when the placeholders contain the interpolated values", () => {
       it("replaces a single placholder", () => {
         let interpolator = new Interpolator({
           source: 'Hello, ${name}',
-          dictionary: {
-            name: 'Bob',
-          },
+          placeholders: { name: 'Bob' },
         })
         expect(interpolator.parse()).toEqual('Hello, Bob')
       });
@@ -17,7 +15,7 @@ describe("Interpolator", () => {
       it("replaces multiple placeholders", () => {
         let interpolator = new Interpolator({
           source: 'Hello, ${name}${levelOfExclaim}',
-          dictionary: {
+          placeholders: {
             name: 'Beth',
             levelOfExclaim: '!',
           },
@@ -30,7 +28,7 @@ describe("Interpolator", () => {
           + 'I\'ve never met anyone named ${name} before.'
         let interpolator = new Interpolator({
           source: source,
-          dictionary: {
+          placeholders: {
             name: 'Cosimo',
             levelOfExclaim: '!',
           },
@@ -42,13 +40,13 @@ describe("Interpolator", () => {
       it("allows numbers, underscores, and capital letters", () => {
         let interpolator = new Interpolator({
           source: '${Name_9}',
-          dictionary: { Name_9: 'Beth' },
+          placeholders: { Name_9: 'Beth' },
         })
         expect(interpolator.parse()).toEqual('Beth');
       });
     });
 
-    describe("when the dictionary is missing one or more values", () => {
+    describe("when the placeholders are missing one or more values", () => {
       it("throws a MissingPlaceholderError", () => {
         let interpolator = new Interpolator({ source: '${foobear}' })
         expect(() => { interpolator.parse() }).toThrow(MissingPlaceholderError)
@@ -59,7 +57,7 @@ describe("Interpolator", () => {
       it("preserves the outermost pair", () => {
         let interpolator = new Interpolator({
           source: 'Hello, ${${name}}',
-          dictionary: { name: 'Beth' },
+          placeholders: { name: 'Beth' },
         });
         expect(interpolator.parse()).toEqual('Hello, ${Beth}');
       });

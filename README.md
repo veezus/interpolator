@@ -30,7 +30,7 @@ library and example app are built against node 9.3.0.
 ```bash
 interpolator $ cd example-app
 interpolator $ npm install
-interpolator $ bin/server
+interpolator $ npm start
 ```
 
 Examples can be found at the root of the app server and at

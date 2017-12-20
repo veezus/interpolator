@@ -1,6 +1,10 @@
 # Interpolator
 
-Interpolator was written as a solution for a coding challenge. It accepts a template and a collection of placeholders; calling the `parse` function will return a string with placeholders replaced by their respective values. If a placeholder is present in the template but not in the map, a `MissingPlaceholderError` will be thrown.
+Interpolator was written as a solution for a coding challenge. It accepts a
+template and a collection of placeholders; calling the `parse` function will
+return a string with placeholders replaced by their respective values. If a
+placeholder is present in the template but not in the map, a
+`MissingPlaceholderError` will be thrown.
 
 ## Example
 
@@ -17,3 +21,7 @@ let interpolator = new Interpolator({
 interpolator.parse(); // => "Billy has an appointment on Thursday"
 interpolator.result; // => Cached result of parse()
 ```
+## Example Application
+
+You can also find an example expressjs application in the `example-app`
+directory, with both server- and client-side rendering.

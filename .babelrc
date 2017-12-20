@@ -1,0 +1,7 @@
+{
+  "env": {
+    "production": {
+      "presets": ["env", "babel-preset-minify"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "interpolator-example-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 9.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Veezus Kreist",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

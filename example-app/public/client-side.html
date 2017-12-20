@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Hello, World</h1>
+    <p id="interpolated"></p>
+  </body>
+  <script type="text/javascript"
+    src="https://code.jquery.com/jquery-3.2.1.min.js">
+  </script>
+  <script type="text/javascript" src="/interpolator.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      var interpolator = new Interpolator({
+        template: "From the client at ${now}",
+        placeholders: {
+          now: (new Date).toString(),
+        },
+      });
+
+      $("p#interpolated").text(interpolator.parse());
+    });
+  </script>
+</html>

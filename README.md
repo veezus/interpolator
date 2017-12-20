@@ -24,4 +24,14 @@ interpolator.result; // => Cached result of parse()
 ## Example Application
 
 You can also find an example expressjs application in the `example-app`
-directory, with both server- and client-side rendering.
+directory, with both server- and client-side rendering. Both the Interpolator
+library and example app are built against node 9.3.0.
+
+```bash
+interpolator $ cd example-app
+interpolator $ npm install
+interpolator $ bin/server
+```
+
+Examples can be found at the root of the app server and at
+`http://localhost:8888/client-side.html`.

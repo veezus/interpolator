@@ -1,0 +1,11 @@
+* Shebang for node
+
+* require http to run a simple web server
+* require index to create and import our app server
+
+
+* set the ports
+
+
+
+* Print a link in case your terminal supports them

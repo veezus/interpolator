@@ -1,0 +1,93 @@
+* Straightforward import
+
+* describe syntax feels nice and familiar to me. There's a package that adds
+  "context" functions, but how many packages to we really need?! So we'll
+  "describe" the class, its functions, and contexts we're testing under
+
+* # vs . syntax - I know these from ruby land. Are there other nomenclatures for JS?
+
+* Simple test, first one written. Instantiates an interpolator and then makes
+  an expectation on the result of its parse() call.
+
+
+* toBe and toEqual are equivalent for built-in types, but toEqual feels better
+  to me because both values having the same value in memory is an
+  implementation detail
+
+* Second test written, verifies the /g on the regex
+
+
+
+
+
+
+
+
+
+
+* Just being thorough with this test
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Tests the \w capture group in the regex
+
+
+
+
+
+
+
+
+* Straightforward throwing test. The expectation is on a function that is
+  called internally by jest later.
+
+
+
+
+
+* The use case presented in the exercise document. I did also play around with
+  an escape character a la \${foo} to output ${foo} but it started feeling like
+  a kludge, using two regexp evaluations and still having to capture the not-\
+  character. If only JS had a lookbehind operator
+
+
+
+
+
+
+
+
+* Asserts that a result property is available and that by default it returns an
+  empty string, regardless of template or placeholder values
+
+
+
+
+
+
+
+
+
+* The exercise said "production-ready" – that's the only reason for this spec
+  to exist
+
+
+
+* Asserts that the result of parse() is the same object as the one stored in
+  the result property. This is essentially future-proofing for if and when we
+  move away from a raw string as a result
+
+* Secondarily asserts that the template has still been parsed and we're not
+  cheating with null or undefined values
+
+

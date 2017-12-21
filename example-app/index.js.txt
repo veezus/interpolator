@@ -1,0 +1,17 @@
+* require filesystem for processing our template
+* expressjs app server
+
+* Require our *source* interpolator library
+
+
+* Serve our client-side.html and interpolator.min.js files
+
+* Express is reminiscent of sinatra in ruby-land
+
+* On /, open up our root file and run it through the interpolator. Send the
+  result directly back to the browser
+
+
+
+* SUPER SIMPLE STUFF just meant to show a basic example of server- and
+  client-side usage

@@ -1,0 +1,17 @@
+
+
+
+
+
+
+* build: specifies production env and compiles our single file
+
+* test: just runs the full jest suite
+
+
+
+
+
+* I'm partial to the MIT license, the default was ISC
+
+* Only devDependencies - yay! Less bloat the better

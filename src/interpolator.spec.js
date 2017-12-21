@@ -4,6 +4,8 @@ const MissingPlaceholderError = require('./interpolator').MissingPlaceholderErro
 describe("Interpolator", () => {
   describe("#parse", () => {
     describe("when the placeholders contain the interpolated values", () => {
+
+
       it("replaces a single placeholder", () => {
         let interpolator = new Interpolator({
           template: 'Hello, ${name}',

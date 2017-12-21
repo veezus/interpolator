@@ -1,0 +1,44 @@
+* Custom error class
+
+* Love the new class syntax. This gets babelized into dist
+* constructor is pretty default, with default values to prevent null errors
+
+
+* placeholderRegexp could be a static method, but I kinda preferred a local
+  variable. Could also have been exposed as a getter
+
+
+* The main method. The replace call is simple enought. I was frustrated,
+  though, by the fact that we still need a bind in this context. If not rebound
+  to itself, the function's context is `undefined`.
+
+
+* The workhorse of parse. Takes a complete match and the placeholder capture
+  group and returns the specified placeholder or raises our custom ereror
+* Used hasOwnPlaceholder to check only `this` object's property and not
+  anything inherited
+
+
+* Getters use an underscore-prefixed internal representation of their values.
+  Makes stubbing for testing easier. Also defines an expected
+  publicly-available API so you can cheat if you want, but you know you're
+  cheating. Feels more ruby-ish to me
+
+* The result getter defaults to '' so you don't get an undefined somewhere
+  accidentally. This could have gone in the constructor. It should probably go
+  there. Where's my pair?
+
+* The setters are used even internally to the object
+
+
+
+
+
+
+
+
+* If we're being consumed by nodejs we'll export through the module object. If
+  we don't have that module we assume we're in the browser, so we'll be
+  imported into the global scope.
+
+

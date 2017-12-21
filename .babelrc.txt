@@ -1,0 +1,4 @@
+
+* Specify a production environment when transforming so we can manually create
+  a `dist` but it won't interfere with our jest specs. For example,
+  `MissingPlaceholderError` gets minified to `b`

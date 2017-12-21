@@ -17,7 +17,7 @@ class Interpolator {
     if (this.placeholders.hasOwnProperty(placeholder))
       return this.placeholders[placeholder]
     else
-      throw new MissingPlaceholderError
+      throw new MissingPlaceholderError(`Missing ${placeholder} placeholder`)
   }
 
   get placeholders () {
